@@ -1,4 +1,4 @@
-﻿# ADR-0001: Initial VPS Deployment Architecture
+# ADR-0001: Initial VPS Deployment Architecture
 
 ## Status
 
@@ -14,15 +14,11 @@ publik lewat IP.
 
 ## Decision
 
-- Flask dengan Gunicorn (1 worker, 2 thread), bind 127.0.0.1:8000
-
-- systemd untuk manajemen proses
-
-- Caddy sebagai reverse proxy di port 80
-
-- UFW dan Azure NSG sebagai firewall
-
-- Konten studi kasus disimpan di cases.json di repository
+* Flask dengan Gunicorn (1 worker, 2 thread), bind 127.0.0.1:8000
+* systemd untuk manajemen proses
+* Caddy sebagai reverse proxy di port 80
+* UFW dan Azure NSG sebagai firewall
+* Konten studi kasus disimpan di cases.json di repository
 
 ## Alternatives
 
@@ -46,15 +42,13 @@ lewat Git dan belum butuh database.
 
 ### Positive
 
-- Footprint kecil, mudah direproduksi dan dijelaskan
-
-- Backend tidak terbuka ke internet
+* Footprint kecil, mudah direproduksi dan dijelaskan
+* Backend tidak terbuka ke internet
 
 ### Negative
 
-- Update konten lewat commit, bukan antarmuka admin
-
-- Satu VM berarti tidak ada redundansi
+* Update konten lewat commit, bukan antarmuka admin
+* Satu VM berarti tidak ada redundansi
 
 ## Review Trigger
 
